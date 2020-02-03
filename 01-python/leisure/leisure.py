@@ -5,7 +5,7 @@ from .market import draw_market
 from .gym import draw_gym
 
 def draw_leisure():
-    draw_museum()
+    draw_museum(17,10)
     draw_restaurant()
     draw_mall()
     draw_gym()
