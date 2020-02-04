@@ -106,3 +106,5 @@ venv.bak/
 # IDE/Code editor settings directories
 .vscode/
 .idea/
+01-python/.project
+01-python/.pydevproject
