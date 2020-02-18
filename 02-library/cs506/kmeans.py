@@ -59,8 +59,11 @@ def cost_function(clustering):
     raise NotImplementedError()
 
 
-def k_means(dataset, k):
-    k_points = generate_k(dataset, k)
+def generate_k_pp(dataset, k):
+    raise NotImplementedError()
+
+
+def _do_lloyds_algo(dataset, k_points):
     assignments = assign_points(dataset, k_points)
     old_assignments = None
     while assignments != old_assignments:
@@ -71,3 +74,13 @@ def k_means(dataset, k):
     for assignment, point in zip(assignments, dataset):
         clustering[assignment].append(point)
     return clustering
+
+
+def k_means(dataset, k):
+    k_points = generate_k(dataset, k)
+    return _do_lloyds_algo(dataset, k_points)
+
+
+def k_means_pp(dataset, k):
+    k_points = generate_k_pp(dataset, k)
+    return _do_lloyds_algo(dataset, k_points)
