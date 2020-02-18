@@ -21,6 +21,16 @@ def update_centers(dataset, assignments):
     Compute the center for each of the assigned groups.
     Return `k` centers in a list
     """
+    new_centers = []
+    for k in range(len(assignments)):
+        new_center = [0]*len(dataset[k][0])
+        for point in range(len(dataset[k])):
+            for dim in range(len(dataset[k][point])):
+                 new_center[dim] += dataset[k][point][dim] / len(dataset[k])
+        
+            
+    
+    
     raise NotImplementedError()
 
 
