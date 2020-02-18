@@ -1,4 +1,5 @@
 import pytest
+import random
 
 from cs506 import kmeans,read
 
@@ -17,6 +18,7 @@ def clustered_all_points(clustering, dataset):
     ("tests/test_files/dataset_1.csv"),
 ])
 def test_kmeans_when_k_is_1(datasetPath):
+    random.seed(1)
     dataset = read.read_csv(datasetPath)
     expected_clustering = dataset
     clustering = kmeans.k_means(dataset=dataset, k=1)
@@ -36,6 +38,7 @@ def test_kmeans_when_k_is_1(datasetPath):
      "tests/test_files/dataset_1_k_is_2_1.csv"),
 ])
 def test_kmeans_when_k_is_2(datasetPath, expected1, expected2):
+    random.seed(1)
     dataset = read.read_csv(datasetPath)
     expected_clustering1 = read.read_csv(expected1)
     expected_clustering2 = read.read_csv(expected2)
@@ -65,6 +68,7 @@ def test_kmeans_when_k_is_2(datasetPath, expected1, expected2):
      "tests/test_files/dataset_1_k_is_3_2.csv"),
 ])
 def test_kmeans_when_k_is_3(datasetPath, expected1, expected2, expected3):
+    random.seed(1)
     dataset = read.read_csv(datasetPath)
     expected_clustering1 = read.read_csv(expected1)
     expected_clustering2 = read.read_csv(expected2)
