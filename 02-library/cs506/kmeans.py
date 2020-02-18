@@ -4,6 +4,7 @@ import random
 import csv
 
 
+
 def point_avg(points):
     """
     Accepts a list of points, each with the same number of dimensions.
@@ -48,10 +49,27 @@ def distance(a, b):
 
 
 def generate_k(dataset, k):
+
+    m= len(dataset)
+    n= len(dataset[0])
+    p = []
+
+    for x in range(k):
+        val_m = random.randint(0,m-1)
+        val_n = random.randint(0,n-1)
+        while dataset[val_m][val_n] in p: 
+            val_m = random.randint(0,m-1)
+            val_n = random.randint(0,n-1)
+        p.append(dataset[val_m][val_n])
+    return p 
+
+
+
     """
     Given `data_set`, which is an array of arrays,
     return a random set of k points from the data_set
     """
+
     raise NotImplementedError()
 
 
