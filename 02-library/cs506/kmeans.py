@@ -11,8 +11,21 @@ def point_avg(points):
     
     Returns a new point which is the center of all the points.
     """
-    raise NotImplementedError()
+    sums = []
+    while len(sums) < len(points[0]):
+        sums.append(0);
+    for point in points:
+        for dimension in range(0, len(point)):
+            sums[dimension] += point[dimension]
+            
+    for i in range(0,len(sums)):
+        sums[i] /= len(points)
+    return sums
 
+
+#testing
+points1 = [[0,0,0], [1,1,1],[2,2,2]]
+print(point_avg(points1))
 
 def update_centers(dataset, assignments):
     """
@@ -44,7 +57,18 @@ def distance(a, b):
     """
     Returns the Euclidean distance between a and b
     """
-    raise NotImplementedError()
+    if len(a) != len(b):
+        raise ValueError("poits of different dimensions")
+
+    distance = 0
+    for x in range(0, len(a)):
+        diff = a[x] - b[x]
+        diff = diff**2
+        distance += diff
+    return distance**(1/2)
+
+#testing
+print(distance([0,0,0], [1,1,1]))
 
 
 def generate_k(dataset, k):
